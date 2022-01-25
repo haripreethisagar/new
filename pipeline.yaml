@@ -30,7 +30,7 @@ steps:
     #- zip -r sample.zip * 
     #- unzip -l sample.zip
     #- mv sample.zip sample.war
-    #- cp sample.war /tmp
+    #- yes y | cp sample.war /opt/apache-tomcat-9.0.56/webapps
     
     
     
