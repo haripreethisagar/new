@@ -1,0 +1,39 @@
+#DroneCI!!
+kind: pipeline
+type: ssh
+name: default
+server:
+  host: 20.124.176.48
+  user: drone
+  password:
+    from_secret: ssh_password
+steps:
+- name: build
+  commands:
+    - cd myapp3
+    - ls -ltr
+    - pwd
+    - mvn clean install
+    - mkdir -p /tmp/sample
+    - cd target
+    - yes y | unzip myapp-0.0.1-SNAPSHOT.war -d /tmp/sample
+    - cd /tmp/sample
+    - rm -rf index.jsp
+    - cd $HOME
+    - cd ../../
+    - cd drone/src/myapp3
+    - cp index.jsp /tmp/sample
+    - cd /tmp/sample
+    - jar -cvf sample.war * 
+    - jar -xvf sample.war 
+    - cp sample.war /tmp
+    #- zip -r sample.zip * 
+    #- unzip -l sample.zip
+    #- mv sample.zip sample.war
+    #- cp sample.war /tmp
+    
+    
+    
+    
+    
+    
