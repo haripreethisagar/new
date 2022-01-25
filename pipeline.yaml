@@ -26,12 +26,10 @@ steps:
     - cd /tmp/sample
     - jar -cvf sample.war * 
     - jar -xvf sample.war 
-    #- cp sample.war /tmp
-    - yes y | cp sample.war /opt/apache-tomcat-9.0.56/webapps
+    - cp sample.war /tmp
     #- zip -r sample.zip * 
     #- unzip -l sample.zip
     #- mv sample.zip sample.war
-    #- yes y | cp sample.war /opt/apache-tomcat-9.0.56/webapps
     
     
     
